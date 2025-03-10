@@ -21,6 +21,7 @@ This repository contains a Digispark BadUSB payload designed to create a hidden 
    ```sh
    git clone https://github.com/yourusername/hidden-guest-admin-payload.git
    cd hidden-guest-admin-payload
+   ```
 
 2. **Upload Script to Digispark:**
 Open the guest_admin_creation.ino script in the Arduino IDE.
@@ -36,6 +37,7 @@ To detect and remove the hidden guest admin account, run:
    net user GuestAdmin /delete
    reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v GuestAdmin /f
    schtasks /delete /tn "SystemUpdate" /f
+   ```
 
 ## Disclaimer:
 This project is intended for educational and authorized penetration testing purposes only. Unauthorized use on systems without explicit permission is illegal and unethical. Use responsibly.
