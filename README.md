@@ -24,6 +24,9 @@ This repository contains a Digispark BadUSB payload designed to create a hidden 
 3. Insert the Digispark into the target machine’s USB port.
 4. The payload will automatically execute and create the hidden admin account.
 
-To detect and remove the hidden guest admin account, run: net user GuestAdmin /delete
+## Detection and Removal
+To detect and remove the hidden guest admin account, run: 
+```sh
+net user GuestAdmin /delete
 reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v GuestAdmin /f
 schtasks /delete /tn "SystemUpdate" /f
