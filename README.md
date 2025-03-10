@@ -17,5 +17,5 @@ This repository contains a Digispark BadUSB payload designed to create a hidden 
 ## Installation & Usage
 1. Clone this repository or download the payload script.
    ```sh
-   git clone https://github.com/yourusername/Digispark-GuestAdmin-Payload.git
+   git clone https://github.com/varun2864/Digispark-GuestAdmin-Payload.git
    cd Digispark-GuestAdmin-Payload
