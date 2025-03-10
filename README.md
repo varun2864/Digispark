@@ -1,32 +1,43 @@
-# Automated Digispark Payload for Guest Admin Creation
+# Hidden Guest Administrator Account Creation
 
-## Overview
-This repository contains a Digispark BadUSB payload designed to create a hidden guest administrator account on Windows machines. The script executes commands to add a new user with administrative privileges while modifying system settings to maintain stealth and persistence.
+This repository contains a Digispark BadUSB payload designed to create a hidden guest administrator account on Windows machines. The payload executes commands to add a new user with administrative privileges and modifies system settings to maintain stealth and persistence.
 
-## Features
-- Creates a new administrator account using `net user` and `net localgroup` commands.
-- Hides the account from the login screen by modifying registry values.
-- Ensures persistence by adding scheduled tasks and adjusting local group policies.
-- Executes stealthily to avoid detection by basic security measures.
+## Key Features:
 
-## Prerequisites
-- A **Digispark ATTiny85** microcontroller
-- **Windows 10/11** target machine
-- Digispark-compatible **Arduino IDE** with **DigiKeyboard** library installed
+- **Account Creation:** Utilizes `net user` and `net localgroup` commands to create a new administrator account.
+- **Stealth Mode:** Hides the account from the login screen by modifying registry values.
+- **Persistence:** Ensures the account remains active by adding scheduled tasks and adjusting local group policies.
 
-## Installation & Usage
-1. Clone this repository or download the payload script.
+## Prerequisites:
+
+- **Hardware:** Digispark ATTiny85 microcontroller.
+- **Target System:** Windows 10/11.
+- **Software:** Arduino IDE with Digispark drivers and the DigiKeyboard library installed.
+
+## Installation & Usage:
+
+1. **Clone the Repository:**
+
    ```sh
-   git clone https://github.com/varun2864/Digispark-GuestAdmin-Payload.git
-   cd Digispark-GuestAdmin-Payload
+   git clone https://github.com/yourusername/hidden-guest-admin-payload.git
+   cd hidden-guest-admin-payload
 
-2. Open the script in the Arduino IDE and upload it to the Digispark device.
-3. Insert the Digispark into the target machine’s USB port.
-4. The payload will automatically execute and create the hidden admin account.
+2. **Upload Script to Digispark:**
+Open the guest_admin_creation.ino script in the Arduino IDE.
+Compile and upload the script to the Digispark device.
+
+3. **Deploy Payload:**
+Insert the Digispark into the target machine's USB port.
+The payload will execute automatically, creating the hidden admin account.
 
 ## Detection and Removal
 To detect and remove the hidden guest admin account, run: 
-```sh
-net user GuestAdmin /delete
-reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v GuestAdmin /f
-schtasks /delete /tn "SystemUpdate" /f
+   ```sh
+   net user GuestAdmin /delete
+   reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v GuestAdmin /f
+   schtasks /delete /tn "SystemUpdate" /f
+
+## Disclaimer:
+This project is intended for educational and authorized penetration testing purposes only. Unauthorized use on systems without explicit permission is illegal and unethical. Use responsibly.
+
+
