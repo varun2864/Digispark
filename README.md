@@ -19,3 +19,11 @@ This repository contains a Digispark BadUSB payload designed to create a hidden 
    ```sh
    git clone https://github.com/varun2864/Digispark-GuestAdmin-Payload.git
    cd Digispark-GuestAdmin-Payload
+
+2. Open the script in the Arduino IDE and upload it to the Digispark device.
+3. Insert the Digispark into the target machine’s USB port.
+4. The payload will automatically execute and create the hidden admin account.
+
+To detect and remove the hidden guest admin account, run: net user GuestAdmin /delete
+reg delete "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\SpecialAccounts\UserList" /v GuestAdmin /f
+schtasks /delete /tn "SystemUpdate" /f
